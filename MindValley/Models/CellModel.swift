@@ -1,0 +1,85 @@
+//
+//  CellModel.swift
+//  MindValley
+//
+//  Created by BqNqNNN on 1/4/20.
+//  Copyright © 2020 BqNqNNN. All rights reserved.
+//
+
+import UIKit
+import Alamofire
+
+
+struct CellPicture {
+    let image: UIImage
+}
+
+class CellModel {
+    // MARK: Properties
+    var cellView: [CellPicture] = []
+    private var pictures: Pictures = [] {
+        didSet {
+            self.fetchPhoto()
+        }
+    }
+   
+
+    // MARK: UI
+    var isLoading: Bool = false {
+        didSet {
+            showLoading?()
+        }
+    }
+    var showLoading: (() -> Void)?
+    var reloadData: (() -> Void)?
+    var showError: ((Error) -> Void)?
+
+    
+    func fetchData(URL : String) {
+        AF.request(URL).responseDecodable(of: Pictures.self) { response in
+            switch response.result {
+                
+            case .success(let payload):
+                self.pictures = payload
+            
+
+            case .failure(let error):
+                self.showError?(error)
+                print("failed")
+
+            }
+        }
+    }
+
+    private func fetchPhoto() {
+        let group = DispatchGroup()
+        self.pictures.forEach { (pic) in
+            DispatchQueue.global(qos: .background).async(group: group) {
+                group.enter()
+                
+                let url = URL(string: pic.urls.small)
+                let data = try? Data(contentsOf: url!)
+                
+                if let data = data {
+                    if let image = UIImage(data: data) {
+                    self.cellView.append(CellPicture(image: image))
+                    }
+                    else{
+                        print("Failed converting data")
+                    }
+                }
+                else {
+                    print("Failed getting url, found nil |")
+                }
+                group.leave()
+            }
+        }
+
+        group.notify(queue: .main) {
+            self.isLoading = false
+            self.reloadData?()
+        }
+    }
+
+
+}

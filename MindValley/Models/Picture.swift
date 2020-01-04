@@ -15,6 +15,10 @@ struct Picture : Codable {
     let urls : URLS
 }
 
-enum URLS : String , Codable {
-    case raw, full, regular, small, thumb
+struct URLS : Codable {
+    let raw : String
+    let full : String
+    let regular : String
+    let small : String
+    let thumb : String
 }

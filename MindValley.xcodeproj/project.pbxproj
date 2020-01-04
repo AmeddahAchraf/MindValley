@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		0438DDE223C0AB26005D24D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0438DDE023C0AB26005D24D0 /* LaunchScreen.storyboard */; };
 		0438DDEB23C0C993005D24D0 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438DDEA23C0C993005D24D0 /* PinterestLayout.swift */; };
 		0438DDEE23C0DAC5005D24D0 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438DDED23C0DAC5005D24D0 /* Picture.swift */; };
+		0438DDF423C1293D005D24D0 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438DDF323C1293D005D24D0 /* CellModel.swift */; };
+		04E891B1C92AC6848D7DA477 /* Pods_MindValley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECEEF49B4777B6C51CD8536E /* Pods_MindValley.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,10 @@
 		0438DDE323C0AB26005D24D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0438DDEA23C0C993005D24D0 /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		0438DDED23C0DAC5005D24D0 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
+		0438DDF323C1293D005D24D0 /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
+		0751FC78BB8D151E16CC7A35 /* Pods-MindValley.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindValley.debug.xcconfig"; path = "Target Support Files/Pods-MindValley/Pods-MindValley.debug.xcconfig"; sourceTree = "<group>"; };
+		11E6365DF85E46663BA14401 /* Pods-MindValley.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindValley.release.xcconfig"; path = "Target Support Files/Pods-MindValley/Pods-MindValley.release.xcconfig"; sourceTree = "<group>"; };
+		ECEEF49B4777B6C51CD8536E /* Pods_MindValley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MindValley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E891B1C92AC6848D7DA477 /* Pods_MindValley.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +53,8 @@
 			children = (
 				0438DDD423C0AB24005D24D0 /* MindValley */,
 				0438DDD323C0AB24005D24D0 /* Products */,
+				3C48FE147196E00EF3DF741B /* Pods */,
+				A5C9E355D86ACC75D04CFA1E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,11 +69,11 @@
 		0438DDD423C0AB24005D24D0 /* MindValley */ = {
 			isa = PBXGroup;
 			children = (
+				0438DDEF23C0DE3A005D24D0 /* Controllers */,
 				0438DDEC23C0DA87005D24D0 /* Models */,
 				0438DDE923C0C94D005D24D0 /* Views */,
 				0438DDD523C0AB24005D24D0 /* AppDelegate.swift */,
 				0438DDD723C0AB24005D24D0 /* SceneDelegate.swift */,
-				0438DDD923C0AB24005D24D0 /* ViewController.swift */,
 				0438DDDB23C0AB24005D24D0 /* Main.storyboard */,
 				0438DDDE23C0AB26005D24D0 /* Assets.xcassets */,
 				0438DDE023C0AB26005D24D0 /* LaunchScreen.storyboard */,
@@ -85,8 +94,34 @@
 			isa = PBXGroup;
 			children = (
 				0438DDED23C0DAC5005D24D0 /* Picture.swift */,
+				0438DDF323C1293D005D24D0 /* CellModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0438DDEF23C0DE3A005D24D0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0438DDD923C0AB24005D24D0 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3C48FE147196E00EF3DF741B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0751FC78BB8D151E16CC7A35 /* Pods-MindValley.debug.xcconfig */,
+				11E6365DF85E46663BA14401 /* Pods-MindValley.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A5C9E355D86ACC75D04CFA1E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECEEF49B4777B6C51CD8536E /* Pods_MindValley.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0438DDE623C0AB26005D24D0 /* Build configuration list for PBXNativeTarget "MindValley" */;
 			buildPhases = (
+				59AC219EB052EA6174B3967E /* [CP] Check Pods Manifest.lock */,
 				0438DDCE23C0AB24005D24D0 /* Sources */,
 				0438DDCF23C0AB24005D24D0 /* Frameworks */,
 				0438DDD023C0AB24005D24D0 /* Resources */,
+				018E833985E34C082F395591 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +192,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		018E833985E34C082F395591 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MindValley/Pods-MindValley-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MindValley/Pods-MindValley-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MindValley/Pods-MindValley-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59AC219EB052EA6174B3967E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MindValley-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0438DDCE23C0AB24005D24D0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -165,6 +244,7 @@
 				0438DDDA23C0AB24005D24D0 /* ViewController.swift in Sources */,
 				0438DDD623C0AB24005D24D0 /* AppDelegate.swift in Sources */,
 				0438DDD823C0AB24005D24D0 /* SceneDelegate.swift in Sources */,
+				0438DDF423C1293D005D24D0 /* CellModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,9 +386,11 @@
 		};
 		0438DDE723C0AB26005D24D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0751FC78BB8D151E16CC7A35 /* Pods-MindValley.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5G786Z6XBU;
 				INFOPLIST_FILE = MindValley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -323,9 +405,11 @@
 		};
 		0438DDE823C0AB26005D24D0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11E6365DF85E46663BA14401 /* Pods-MindValley.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5G786Z6XBU;
 				INFOPLIST_FILE = MindValley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

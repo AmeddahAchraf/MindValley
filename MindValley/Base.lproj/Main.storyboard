@@ -37,7 +37,7 @@
                                 <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <collectionViewLayout key="collectionViewLayout" id="b2f-fb-A0W" customClass="PinterestLayout" customModule="MindValley" customModuleProvider="target"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="rww-jn-uiR">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="rww-jn-uiR" customClass="PhotoCell" customModule="MindValley" customModuleProvider="target">
                                         <rect key="frame" x="-197.66666666666666" y="0.0" width="809" height="279"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zGC-nk-gh3">
@@ -57,16 +57,13 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="280" id="hPX-gV-ZpZ"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="I4D-k9-T4V" firstAttribute="top" secondItem="zGC-nk-gh3" secondAttribute="top" id="5Ou-o6-udz"/>
-                                                <constraint firstAttribute="trailing" secondItem="I4D-k9-T4V" secondAttribute="trailing" id="QTF-v2-4H6"/>
-                                                <constraint firstItem="I4D-k9-T4V" firstAttribute="leading" secondItem="zGC-nk-gh3" secondAttribute="leading" id="VbA-XR-j2I"/>
-                                                <constraint firstAttribute="bottom" secondItem="I4D-k9-T4V" secondAttribute="bottom" id="wh6-ZT-O4M"/>
+                                                <constraint firstItem="I4D-k9-T4V" firstAttribute="leading" secondItem="zGC-nk-gh3" secondAttribute="leading" id="BQj-eX-kRQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="I4D-k9-T4V" secondAttribute="trailing" id="L5R-Cz-utK"/>
+                                                <constraint firstItem="I4D-k9-T4V" firstAttribute="top" secondItem="zGC-nk-gh3" secondAttribute="top" id="NO0-UB-W46"/>
+                                                <constraint firstAttribute="bottom" secondItem="I4D-k9-T4V" secondAttribute="bottom" id="rAr-HQ-vFN"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="809" height="279"/>
@@ -75,10 +72,14 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="image" destination="0Vx-gK-ZkH" id="Ixb-Gs-UQt"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="7YG-8J-6QG"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Iai-dc-Z9o"/>
                                 </connections>
                             </collectionView>
                         </subviews>
