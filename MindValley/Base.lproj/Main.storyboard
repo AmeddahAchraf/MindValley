@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MindValley" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FlF-yE-BPl">
+                                <rect key="frame" x="151.33333333333334" y="424.66666666666669" width="111.33333333333334" height="56.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Anq-QF-AGR">
+                                        <rect key="frame" x="0.0" y="0.0" width="111.33333333333333" height="28.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Um4-CN-TH5">
+                                        <rect key="frame" x="45.666666666666657" y="36.666666666666629" width="20" height="20"/>
+                                        <color key="color" red="0.50436472889999995" green="0.1508350074" blue="0.94429141279999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                            </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hOm-AO-KVD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <collectionViewLayout key="collectionViewLayout" id="b2f-fb-A0W" customClass="PinterestLayout" customModule="MindValley" customModuleProvider="target"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="rww-jn-uiR">
+                                        <rect key="frame" x="-197.66666666666666" y="0.0" width="809" height="279"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zGC-nk-gh3">
+                                            <rect key="frame" x="0.0" y="0.0" width="809" height="279"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="I4D-k9-T4V">
+                                                    <rect key="frame" x="0.0" y="0.0" width="809" height="279"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="holder" translatesAutoresizingMaskIntoConstraints="NO" id="0Vx-gK-ZkH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="809" height="279"/>
+                                                            <color key="backgroundColor" red="0.50436472889999995" green="0.1508350074" blue="0.94429141279999995" alpha="1" colorSpace="deviceRGB"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="280" id="hPX-gV-ZpZ"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="I4D-k9-T4V" firstAttribute="top" secondItem="zGC-nk-gh3" secondAttribute="top" id="5Ou-o6-udz"/>
+                                                <constraint firstAttribute="trailing" secondItem="I4D-k9-T4V" secondAttribute="trailing" id="QTF-v2-4H6"/>
+                                                <constraint firstItem="I4D-k9-T4V" firstAttribute="leading" secondItem="zGC-nk-gh3" secondAttribute="leading" id="VbA-XR-j2I"/>
+                                                <constraint firstAttribute="bottom" secondItem="I4D-k9-T4V" secondAttribute="bottom" id="wh6-ZT-O4M"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="809" height="279"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="7YG-8J-6QG"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hOm-AO-KVD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="12w-go-4wg"/>
+                            <constraint firstItem="hOm-AO-KVD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PKT-T1-YRR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hOm-AO-KVD" secondAttribute="trailing" id="TFA-1o-NOf"/>
+                            <constraint firstItem="FlF-yE-BPl" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="cyD-4D-WhL"/>
+                            <constraint firstItem="hOm-AO-KVD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jbd-Lw-Qvw"/>
+                            <constraint firstItem="FlF-yE-BPl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mRJ-V3-SUr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Um4-CN-TH5" id="0JG-bs-7fz"/>
+                        <outlet property="collectionView" destination="hOm-AO-KVD" id="7lf-3f-Q5m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.03703703703704" y="138.33333333333334"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="holder" width="614" height="460"/>
+    </resources>
+</document>
