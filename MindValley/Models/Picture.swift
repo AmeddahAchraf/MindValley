@@ -13,6 +13,7 @@ typealias Pictures = [Picture]
 struct Picture : Codable {
     let id : String
     let urls : URLS
+    let user : User
 }
 
 struct URLS : Codable {
@@ -21,4 +22,10 @@ struct URLS : Codable {
     let regular : String
     let small : String
     let thumb : String
+}
+
+struct User : Codable {
+    let id : String
+    let username : String
+    let name : String
 }

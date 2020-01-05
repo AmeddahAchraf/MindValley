@@ -12,6 +12,7 @@ import Alamofire
 
 struct CellPicture {
     let image: UIImage
+    let userName : String
 }
 
 class CellModel {
@@ -63,7 +64,7 @@ class CellModel {
                 
                 if let data = data {
                     if let image = UIImage(data: data) {
-                    self.cellView.append(CellPicture(image: image))
+                        self.cellView.append(CellPicture(image: image, userName: pic.user.name))
                     }
                     else{
                         print("Failed converting data")

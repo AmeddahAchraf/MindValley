@@ -11,6 +11,7 @@ import Alamofire
 
 class PhotoCell : UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
 }
 
 
@@ -76,6 +77,7 @@ extension ViewController : UICollectionViewDataSource {
         
         let image = viewModel.cellView[indexPath.item].image
         cell.image.image = image
+        cell.userNameLabel.text = viewModel.cellView[indexPath.item].userName
         return cell
     }
     
