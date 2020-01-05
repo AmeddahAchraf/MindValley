@@ -25,7 +25,7 @@ class CellModel {
    
 
     // MARK: UI
-    var isLoading: Bool = false {
+    var isLoading: Bool = true {
         didSet {
             showLoading?()
         }
@@ -36,6 +36,7 @@ class CellModel {
 
     
     func fetchData(URL : String) {
+        self.isLoading = true
         AF.request(URL).responseDecodable(of: Pictures.self) { response in
             switch response.result {
                 

@@ -16,21 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FlF-yE-BPl">
-                                <rect key="frame" x="151.33333333333334" y="424.66666666666669" width="111.33333333333334" height="56.666666666666686"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Anq-QF-AGR">
-                                        <rect key="frame" x="0.0" y="0.0" width="111.33333333333333" height="28.666666666666668"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Um4-CN-TH5">
-                                        <rect key="frame" x="45.666666666666657" y="36.666666666666629" width="20" height="20"/>
-                                        <color key="color" red="0.50436472889999995" green="0.1508350074" blue="0.94429141279999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                            </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hOm-AO-KVD">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -82,6 +67,33 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Iai-dc-Z9o"/>
                                 </connections>
                             </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FlF-yE-BPl">
+                                <rect key="frame" x="87" y="359.33333333333331" width="240" height="187.33333333333331"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="pGJ-Ba-oHF">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="1Dw-ax-9NY"/>
+                                            <constraint firstAttribute="height" constant="128" id="Q8F-i0-OXG"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOADING..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Anq-QF-AGR">
+                                        <rect key="frame" x="72.333333333333343" y="136" width="95.666666666666657" height="23.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Um4-CN-TH5">
+                                        <rect key="frame" x="110" y="167.33333333333331" width="20" height="20"/>
+                                        <color key="color" red="0.50436472889999995" green="0.1508350074" blue="0.94429141279999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="pGJ-Ba-oHF" firstAttribute="top" secondItem="FlF-yE-BPl" secondAttribute="top" id="RwZ-sb-BWa"/>
+                                    <constraint firstItem="pGJ-Ba-oHF" firstAttribute="leading" secondItem="FlF-yE-BPl" secondAttribute="leading" id="onM-f9-3Oy"/>
+                                    <constraint firstAttribute="trailing" secondItem="pGJ-Ba-oHF" secondAttribute="trailing" id="p8V-6U-Z0p"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -95,8 +107,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="Um4-CN-TH5" id="0JG-bs-7fz"/>
+                        <outlet property="activityIndicator" destination="Um4-CN-TH5" id="8kG-aI-8VQ"/>
                         <outlet property="collectionView" destination="hOm-AO-KVD" id="7lf-3f-Q5m"/>
+                        <outlet property="loading" destination="Anq-QF-AGR" id="zRZ-O4-3R2"/>
+                        <outlet property="stackView" destination="FlF-yE-BPl" id="e1i-wi-AHf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -106,5 +120,6 @@
     </scenes>
     <resources>
         <image name="holder" width="614" height="460"/>
+        <image name="logo" width="455" height="464"/>
     </resources>
 </document>

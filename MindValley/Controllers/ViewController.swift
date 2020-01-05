@@ -18,8 +18,12 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     // MARK : Outlets
     
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var loading: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    
     
     // MARK : Prop
     
@@ -39,9 +43,11 @@ class ViewController: UIViewController, UITableViewDelegate {
             if self.viewModel.isLoading {
                 self.activityIndicator.startAnimating()
                 self.collectionView.alpha = 0.0
+                self.stackView.alpha = 1.0
             } else {
                 self.activityIndicator.stopAnimating()
                 self.collectionView.alpha = 1.0
+                self.stackView.alpha = 0.0
             }
         }
         viewModel.showError = { error in
