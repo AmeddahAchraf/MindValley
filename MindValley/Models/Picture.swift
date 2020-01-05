@@ -14,6 +14,8 @@ struct Picture : Codable {
     let id : String
     let urls : URLS
     let user : User
+    let likes : Int
+    let liked_by_user : Bool
 }
 
 struct URLS : Codable {

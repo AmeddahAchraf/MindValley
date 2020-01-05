@@ -17,6 +17,7 @@
 		0438DDEE23C0DAC5005D24D0 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438DDED23C0DAC5005D24D0 /* Picture.swift */; };
 		0438DDF423C1293D005D24D0 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438DDF323C1293D005D24D0 /* CellModel.swift */; };
 		04E891B1C92AC6848D7DA477 /* Pods_MindValley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECEEF49B4777B6C51CD8536E /* Pods_MindValley.framework */; };
+		04F4CE1623C2213C00F51D14 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4CE1523C2213C00F51D14 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		0438DDEA23C0C993005D24D0 /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		0438DDED23C0DAC5005D24D0 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		0438DDF323C1293D005D24D0 /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
+		04F4CE1523C2213C00F51D14 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		0751FC78BB8D151E16CC7A35 /* Pods-MindValley.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindValley.debug.xcconfig"; path = "Target Support Files/Pods-MindValley/Pods-MindValley.debug.xcconfig"; sourceTree = "<group>"; };
 		11E6365DF85E46663BA14401 /* Pods-MindValley.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindValley.release.xcconfig"; path = "Target Support Files/Pods-MindValley/Pods-MindValley.release.xcconfig"; sourceTree = "<group>"; };
 		ECEEF49B4777B6C51CD8536E /* Pods_MindValley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MindValley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				0438DDD923C0AB24005D24D0 /* ViewController.swift */,
+				04F4CE1523C2213C00F51D14 /* DetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				0438DDEE23C0DAC5005D24D0 /* Picture.swift in Sources */,
 				0438DDDA23C0AB24005D24D0 /* ViewController.swift in Sources */,
 				0438DDD623C0AB24005D24D0 /* AppDelegate.swift in Sources */,
+				04F4CE1623C2213C00F51D14 /* DetailsViewController.swift in Sources */,
 				0438DDD823C0AB24005D24D0 /* SceneDelegate.swift in Sources */,
 				0438DDF423C1293D005D24D0 /* CellModel.swift in Sources */,
 			);

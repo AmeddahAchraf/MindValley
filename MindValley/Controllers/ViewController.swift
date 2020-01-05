@@ -9,6 +9,15 @@
 import UIKit
 import Alamofire
 
+
+// MARK : Delegate Protocole
+
+protocol DetailSelectionDelegate {
+    func didTapPicture(picture :CellPicture)
+}
+
+// MARK : Cell Properties
+
 class PhotoCell : UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -37,7 +46,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         if let layout = collectionView.collectionViewLayout as? PinterestLayout {
             layout.delegate = self
         }
-        
+            
         collectionView.contentInset = UIEdgeInsets (top: 10, left: 10, bottom: 10, right: 10)
         
         viewModel.showLoading = {
@@ -67,7 +76,7 @@ class ViewController: UIViewController, UITableViewDelegate {
 
 // MARK : Data source
 
-extension ViewController : UICollectionViewDataSource {
+extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.cellView.count
     }
@@ -81,6 +90,13 @@ extension ViewController : UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Details") as! DetailsViewController
+        self.present(vc, animated: true, completion: nil)
+        vc.selectionDelegate.didTapPicture(picture: viewModel.cellView[indexPath.item])
+    }
+    
 }
 
 // MARK : Flow Layout
@@ -92,7 +108,6 @@ extension ViewController : PinterestLayoutDelegate {
         
         return height
     }
-    
-    
 }
+
 
