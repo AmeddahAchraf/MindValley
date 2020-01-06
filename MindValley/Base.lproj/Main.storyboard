@@ -23,17 +23,17 @@
                                 <collectionViewLayout key="collectionViewLayout" id="b2f-fb-A0W" customClass="PinterestLayout" customModule="MindValley" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="rww-jn-uiR" customClass="PhotoCell" customModule="MindValley" customModuleProvider="target">
-                                        <rect key="frame" x="-197.66666666666666" y="0.0" width="809" height="279"/>
+                                        <rect key="frame" x="0.66666666666666663" y="0.0" width="413" height="319"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zGC-nk-gh3">
-                                            <rect key="frame" x="0.0" y="0.0" width="809" height="279"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="413" height="319"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="I4D-k9-T4V">
-                                                    <rect key="frame" x="0.0" y="0.0" width="809" height="279"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="I4D-k9-T4V">
+                                                    <rect key="frame" x="0.0" y="0.0" width="413" height="319"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="holder" translatesAutoresizingMaskIntoConstraints="NO" id="0Vx-gK-ZkH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="809" height="258.66666666666669"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="holder" translatesAutoresizingMaskIntoConstraints="NO" id="0Vx-gK-ZkH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="413" height="279"/>
                                                             <color key="backgroundColor" red="0.50436472889999995" green="0.1508350074" blue="0.94429141279999995" alpha="1" colorSpace="deviceRGB"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -41,27 +41,30 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAP-KZ-89v">
-                                                            <rect key="frame" x="0.0" y="258.66666666666669" width="809" height="20.333333333333314"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAP-KZ-89v">
+                                                            <rect key="frame" x="0.0" y="289" width="413" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="SAP-KZ-89v" firstAttribute="leading" secondItem="I4D-k9-T4V" secondAttribute="leading" constant="10" id="niO-Xd-Yeh"/>
-                                                        <constraint firstItem="SAP-KZ-89v" firstAttribute="top" secondItem="0Vx-gK-ZkH" secondAttribute="bottom" constant="10" id="sLQ-gv-Cu3"/>
+                                                        <constraint firstAttribute="trailing" secondItem="0Vx-gK-ZkH" secondAttribute="trailing" id="4QH-3n-XeO"/>
+                                                        <constraint firstItem="0Vx-gK-ZkH" firstAttribute="top" secondItem="I4D-k9-T4V" secondAttribute="top" id="6Xi-wg-Lq0"/>
+                                                        <constraint firstAttribute="bottom" secondItem="0Vx-gK-ZkH" secondAttribute="bottom" constant="40" id="8zP-XS-PJo"/>
+                                                        <constraint firstItem="SAP-KZ-89v" firstAttribute="top" secondItem="0Vx-gK-ZkH" secondAttribute="bottom" constant="10" id="Gea-tp-umE"/>
+                                                        <constraint firstItem="0Vx-gK-ZkH" firstAttribute="leading" secondItem="I4D-k9-T4V" secondAttribute="leading" id="u87-mE-zbj"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="I4D-k9-T4V" firstAttribute="leading" secondItem="zGC-nk-gh3" secondAttribute="leading" id="BQj-eX-kRQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="I4D-k9-T4V" secondAttribute="trailing" id="L5R-Cz-utK"/>
-                                                <constraint firstItem="I4D-k9-T4V" firstAttribute="top" secondItem="zGC-nk-gh3" secondAttribute="top" id="NO0-UB-W46"/>
-                                                <constraint firstAttribute="bottom" secondItem="I4D-k9-T4V" secondAttribute="bottom" id="rAr-HQ-vFN"/>
+                                                <constraint firstItem="I4D-k9-T4V" firstAttribute="leading" secondItem="zGC-nk-gh3" secondAttribute="leading" id="OC6-1f-qQy"/>
+                                                <constraint firstAttribute="trailing" secondItem="I4D-k9-T4V" secondAttribute="trailing" id="kc5-Tp-5mN"/>
+                                                <constraint firstAttribute="bottom" secondItem="I4D-k9-T4V" secondAttribute="bottom" id="l7n-2h-wiA"/>
+                                                <constraint firstItem="I4D-k9-T4V" firstAttribute="top" secondItem="zGC-nk-gh3" secondAttribute="top" id="vPi-m3-HZc"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="809" height="279"/>
+                                        <size key="customSize" width="413" height="319"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
@@ -126,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.03703703703704" y="138.33333333333334"/>
+            <point key="canvasLocation" x="136.23188405797103" y="137.94642857142856"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="0Hi-Zc-oKr">
@@ -140,7 +143,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="508"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="Fl8-hK-pEz"/>
                                     <constraint firstAttribute="height" constant="508" id="s0s-Je-Snc"/>
                                 </constraints>
                             </imageView>
@@ -152,7 +154,7 @@
                                     <constraint firstAttribute="height" constant="58" id="vsr-N5-7zs"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Henkiz Dantiq " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D34-Qe-hht">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Henkiz Dantiq " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D34-Qe-hht">
                                 <rect key="frame" x="9.0000000000000071" y="603" width="118.66666666666669" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -173,6 +175,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="rtN-lI-B4H" firstAttribute="leading" secondItem="D34-Qe-hht" secondAttribute="trailing" constant="11.333333333333314" id="2G0-p9-gHN"/>
                             <constraint firstItem="Kb7-bz-0Fx" firstAttribute="trailing" secondItem="rtN-lI-B4H" secondAttribute="trailing" constant="34" id="5WT-YE-02b"/>
                             <constraint firstItem="rtN-lI-B4H" firstAttribute="top" secondItem="nUm-J1-Kbm" secondAttribute="bottom" constant="15" id="7n6-ai-o5o"/>
                             <constraint firstItem="Kb7-bz-0Fx" firstAttribute="trailing" secondItem="nUm-J1-Kbm" secondAttribute="trailing" constant="9" id="9ga-JY-blg"/>
@@ -184,7 +187,6 @@
                             <constraint firstItem="aSx-6e-8D7" firstAttribute="leading" secondItem="Kb7-bz-0Fx" secondAttribute="leading" id="dH0-6K-Ipp"/>
                             <constraint firstItem="xBh-7H-PS1" firstAttribute="leading" secondItem="Kb7-bz-0Fx" secondAttribute="leading" constant="9" id="jvv-Ko-gvO"/>
                             <constraint firstItem="aSx-6e-8D7" firstAttribute="trailing" secondItem="Kb7-bz-0Fx" secondAttribute="trailing" id="lHS-kn-aCU"/>
-                            <constraint firstItem="Kb7-bz-0Fx" firstAttribute="trailing" secondItem="xBh-7H-PS1" secondAttribute="trailing" constant="365" id="pJv-qF-kkV"/>
                             <constraint firstItem="D34-Qe-hht" firstAttribute="top" secondItem="nUm-J1-Kbm" secondAttribute="bottom" constant="15" id="rvH-4c-bwE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kb7-bz-0Fx"/>
