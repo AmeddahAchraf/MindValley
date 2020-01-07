@@ -73,7 +73,7 @@ class CellModel {
                     }
                 }
                 else {
-                    print("Failed getting url, found nil |")
+                    print("Failed getting \(pic.urls.small)")                    
                 }
                 group.leave()
             }

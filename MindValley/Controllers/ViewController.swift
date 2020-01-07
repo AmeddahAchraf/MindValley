@@ -10,43 +10,39 @@ import UIKit
 import Alamofire
 
 
-// MARK : Delegate Protocole
+// MARK: - Commmuniction Delegate Protocole
 
 protocol DetailSelectionDelegate {
     func didTapPicture(picture :CellPicture)
 }
 
-// MARK : Cell Properties
+// MARK: - Cell Properties
 
 class PhotoCell : UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
 }
 
-
 class ViewController: UIViewController, UITableViewDelegate {
     
-    // MARK : Outlets
+// MARK: - Outlets
     
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var loading: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
-    
-    // MARK : Prop
+// MARK: - Properties
     
     var pictures : Pictures = []
-
-    
+    var fetchingMore : Bool = false
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let layout = collectionView.collectionViewLayout as? PinterestLayout {
             layout.delegate = self
         }
-            
         collectionView.contentInset = UIEdgeInsets (top: 10, left: 10, bottom: 10, right: 10)
         
         CellModel.Cell_Instance.showLoading = {
@@ -70,11 +66,35 @@ class ViewController: UIViewController, UITableViewDelegate {
         
         CellModel.Cell_Instance.fetchData(URL: BASE_URL)
         
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        collectionView.addSubview(refreshControl)
+    }
+    
+    func beginBatchFetched(){
+        print("Fetching data")
+        fetchingMore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.fetchingMore = false
+            // Fetch More Data From API
+            
+            //Reload Collection View when the request is done
+            //self.collectionView.reloadData()
+        })
+    }
+    
+    @objc func refresh(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+            self.refreshControl.endRefreshing()
+            print("Refreshing")
+        })
+        
     }
 }
 
 
-// MARK : Data source
+// MARK: - Data source
 
 extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -89,20 +109,28 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "Details") as! DetailsViewController
         self.present(vc, animated: true, completion: nil)
         vc.selectionDelegate.didTapPicture(picture: CellPicture(image: CellModel.Cell_Instance.cellView[indexPath.item].image,
                                                                 userName: CellModel.Cell_Instance.cellView[indexPath.item].userName,
                                                                 largeImage: CellModel.Cell_Instance.cellView[indexPath.item].largeImage,
                                                                 liked_by_user: CellModel.Cell_Instance.cellView[indexPath.item].liked_by_user,
-                                                                likes: CellModel.Cell_Instance.cellView[indexPath.item].likes)
-        )
+                                                                likes: CellModel.Cell_Instance.cellView[indexPath.item].likes))
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        if offsetY > contentHeight - scrollView.frame.height {
+          if !fetchingMore {
+            beginBatchFetched()
+          }
+        }
     }
     
 }
 
-// MARK : Flow Layout
+// MARK: - Flow Layout
 
 extension ViewController : PinterestLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {

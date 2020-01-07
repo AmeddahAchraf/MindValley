@@ -73,6 +73,7 @@
 		0438DDD423C0AB24005D24D0 /* MindValley */ = {
 			isa = PBXGroup;
 			children = (
+				048F6CE823C501DF002EA68E /* Service */,
 				048F6CE523C4F541002EA68E /* Config */,
 				0438DDEF23C0DE3A005D24D0 /* Controllers */,
 				0438DDEC23C0DA87005D24D0 /* Models */,
@@ -99,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				0438DDED23C0DAC5005D24D0 /* Picture.swift */,
-				0438DDF323C1293D005D24D0 /* CellModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -119,6 +119,14 @@
 				048F6CE623C4F560002EA68E /* BaseURL.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		048F6CE823C501DF002EA68E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0438DDF323C1293D005D24D0 /* CellModel.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		3C48FE147196E00EF3DF741B /* Pods */ = {
