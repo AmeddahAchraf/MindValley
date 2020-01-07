@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041328C323C3DFBE00296A1D /* LargePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041328C223C3DFBE00296A1D /* LargePicture.swift */; };
 		0438DDD623C0AB24005D24D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438DDD523C0AB24005D24D0 /* AppDelegate.swift */; };
 		0438DDD823C0AB24005D24D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438DDD723C0AB24005D24D0 /* SceneDelegate.swift */; };
 		0438DDDA23C0AB24005D24D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438DDD923C0AB24005D24D0 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		041328C223C3DFBE00296A1D /* LargePicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargePicture.swift; sourceTree = "<group>"; };
 		0438DDD223C0AB24005D24D0 /* MindValley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MindValley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0438DDD523C0AB24005D24D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0438DDD723C0AB24005D24D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				0438DDED23C0DAC5005D24D0 /* Picture.swift */,
 				0438DDF323C1293D005D24D0 /* CellModel.swift */,
+				041328C223C3DFBE00296A1D /* LargePicture.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				0438DDEE23C0DAC5005D24D0 /* Picture.swift in Sources */,
 				0438DDDA23C0AB24005D24D0 /* ViewController.swift in Sources */,
 				0438DDD623C0AB24005D24D0 /* AppDelegate.swift in Sources */,
+				041328C323C3DFBE00296A1D /* LargePicture.swift in Sources */,
 				04F4CE1623C2213C00F51D14 /* DetailsViewController.swift in Sources */,
 				0438DDD823C0AB24005D24D0 /* SceneDelegate.swift in Sources */,
 				0438DDF423C1293D005D24D0 /* CellModel.swift in Sources */,

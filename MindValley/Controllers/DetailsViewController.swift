@@ -22,7 +22,7 @@ class DetailsViewController: UIViewController {
     
     var selectionDelegate : DetailSelectionDelegate!
     var likedByUser = false
-    var pictureDetail : CellPicture!
+    var pictureDetail : LargePicture!
     
     override func viewDidLoad() {
         selectionDelegate = self
@@ -61,9 +61,10 @@ class DetailsViewController: UIViewController {
 
 extension DetailsViewController : DetailSelectionDelegate {
     
-    func didTapPicture(picture: CellPicture) {
+    func didTapPicture(picture: LargePicture) {
         pictureDetail = picture
-        self.image.image = picture.image
+        //self.image.image = picture.image
+        
         self.likeLabel.text = String(picture.likes) + " Likes"
         self.likedByUser = picture.liked_by_user
         self.userLabel.text = picture.userName

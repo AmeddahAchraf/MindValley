@@ -13,7 +13,7 @@ import Alamofire
 // MARK : Delegate Protocole
 
 protocol DetailSelectionDelegate {
-    func didTapPicture(picture :CellPicture)
+    func didTapPicture(picture :LargePicture)
 }
 
 // MARK : Cell Properties
@@ -94,7 +94,11 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate 
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "Details") as! DetailsViewController
         self.present(vc, animated: true, completion: nil)
-        vc.selectionDelegate.didTapPicture(picture: viewModel.cellView[indexPath.item])
+        vc.selectionDelegate.didTapPicture(picture: LargePicture(pictureLink: viewModel.pictures[indexPath.item].urls.regular,
+                                                                 likes: viewModel.pictures[indexPath.item].likes,
+                                                                 liked_by_user: viewModel.pictures[indexPath.item].liked_by_user,
+                                                                 userName: viewModel.pictures[indexPath.item].user.name)
+        )
     }
     
 }

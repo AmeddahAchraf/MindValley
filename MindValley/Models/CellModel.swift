@@ -9,18 +9,15 @@
 import UIKit
 import Alamofire
 
-
 struct CellPicture {
     let image: UIImage
     let userName : String
-    let likes : Int
-    let liked_by_user : Bool
 }
 
 class CellModel {
     // MARK: Properties
     var cellView: [CellPicture] = []
-    private var pictures: Pictures = [] {
+    var pictures: Pictures = [] {
         didSet {
             self.fetchPhoto()
         }
@@ -65,7 +62,7 @@ class CellModel {
                 let data = try? Data(contentsOf: url!)
                 if let data = data {
                     if let image = UIImage(data: data) {
-                        self.cellView.append(CellPicture(image: image, userName: pic.user.name, likes: pic.likes, liked_by_user: pic.liked_by_user ))
+                        self.cellView.append(CellPicture(image: image, userName: pic.user.name))
                     }
                     else{
                         print("Failed converting data")
