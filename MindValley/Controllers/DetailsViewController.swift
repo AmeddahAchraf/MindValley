@@ -22,7 +22,7 @@ class DetailsViewController: UIViewController {
     
     var selectionDelegate : DetailSelectionDelegate!
     var likedByUser = false
-    var pictureDetail : LargePicture!
+    var pictureDetail : CellPicture!
     
     override func viewDidLoad() {
         selectionDelegate = self
@@ -61,10 +61,25 @@ class DetailsViewController: UIViewController {
 
 extension DetailsViewController : DetailSelectionDelegate {
     
-    func didTapPicture(picture: LargePicture) {
+    func didTapPicture(picture: CellPicture) {
         pictureDetail = picture
-        //self.image.image = picture.image
-        
+        self.image.image = picture.image
+        //Adding Blur to image while downloading the real size
+        let blurredView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        blurredView.frame = self.view.bounds
+        self.image.addSubview(blurredView)
+        //Fetch real size image
+        CellModel.Cell_Instance.fetchLargePicture(URL: picture.largeImage,
+            onSuccess: { data in
+                DispatchQueue.main.async {
+                    blurredView.removeFromSuperview()
+                    self.image.image = UIImage(data: data, scale:1)
+                }
+                                                
+        },
+            onFailure: { error in
+                print(error)
+        })
         self.likeLabel.text = String(picture.likes) + " Likes"
         self.likedByUser = picture.liked_by_user
         self.userLabel.text = picture.userName

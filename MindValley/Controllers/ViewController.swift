@@ -13,7 +13,7 @@ import Alamofire
 // MARK : Delegate Protocole
 
 protocol DetailSelectionDelegate {
-    func didTapPicture(picture :LargePicture)
+    func didTapPicture(picture :CellPicture)
 }
 
 // MARK : Cell Properties
@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate {
     // MARK : Prop
     
     var pictures : Pictures = []
-    let viewModel = CellModel()
+
     
     
     override func viewDidLoad() {
@@ -49,8 +49,8 @@ class ViewController: UIViewController, UITableViewDelegate {
             
         collectionView.contentInset = UIEdgeInsets (top: 10, left: 10, bottom: 10, right: 10)
         
-        viewModel.showLoading = {
-            if self.viewModel.isLoading {
+        CellModel.Cell_Instance.showLoading = {
+            if CellModel.Cell_Instance.isLoading {
                 self.activityIndicator.startAnimating()
                 self.collectionView.alpha = 0.0
                 self.stackView.alpha = 1.0
@@ -60,15 +60,15 @@ class ViewController: UIViewController, UITableViewDelegate {
                 self.stackView.alpha = 0.0
             }
         }
-        viewModel.showError = { error in
+        CellModel.Cell_Instance.showError = { error in
             print(error)
         }
         
-        viewModel.reloadData = {
+        CellModel.Cell_Instance.reloadData = {
             self.collectionView.reloadData()
         }
         
-        viewModel.fetchData(URL: "http://pastebin.com/raw/wgkJgazE")
+        CellModel.Cell_Instance.fetchData(URL: BASE_URL)
         
     }
 }
@@ -78,15 +78,13 @@ class ViewController: UIViewController, UITableViewDelegate {
 
 extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.cellView.count
+        CellModel.Cell_Instance.cellView.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
-        
-        let image = viewModel.cellView[indexPath.item].image
-        cell.image.image = image
-        cell.userNameLabel.text = viewModel.cellView[indexPath.item].userName
+        cell.image.image = CellModel.Cell_Instance.cellView[indexPath.item].image
+        cell.userNameLabel.text = CellModel.Cell_Instance.cellView[indexPath.item].userName
         return cell
     }
     
@@ -94,10 +92,11 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate 
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "Details") as! DetailsViewController
         self.present(vc, animated: true, completion: nil)
-        vc.selectionDelegate.didTapPicture(picture: LargePicture(pictureLink: viewModel.pictures[indexPath.item].urls.regular,
-                                                                 likes: viewModel.pictures[indexPath.item].likes,
-                                                                 liked_by_user: viewModel.pictures[indexPath.item].liked_by_user,
-                                                                 userName: viewModel.pictures[indexPath.item].user.name)
+        vc.selectionDelegate.didTapPicture(picture: CellPicture(image: CellModel.Cell_Instance.cellView[indexPath.item].image,
+                                                                userName: CellModel.Cell_Instance.cellView[indexPath.item].userName,
+                                                                largeImage: CellModel.Cell_Instance.cellView[indexPath.item].largeImage,
+                                                                liked_by_user: CellModel.Cell_Instance.cellView[indexPath.item].liked_by_user,
+                                                                likes: CellModel.Cell_Instance.cellView[indexPath.item].likes)
         )
     }
     
@@ -107,9 +106,8 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate 
 
 extension ViewController : PinterestLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        let image = viewModel.cellView[indexPath.item].image
+        let image = CellModel.Cell_Instance.cellView[indexPath.item].image
         let height = image.size.height
-        
         return height
     }
 }
