@@ -24,6 +24,7 @@ class DetailsViewController: UIViewController {
     var likedByUser = false
     var pictureDetail : CellPicture!
     var imageCashDict = NSCache<NSString, UIImage>()
+    let maxCashSize = 10
     
     
     override func viewDidLoad() {
@@ -32,6 +33,7 @@ class DetailsViewController: UIViewController {
         self.likedByUser = false
         likeImage.isUserInteractionEnabled = true
         likeImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped)))
+        self.imageCashDict.countLimit = maxCashSize
         }
 
         @objc private func imageTapped(_ recognizer: UITapGestureRecognizer) {
@@ -57,7 +59,6 @@ extension DetailsViewController : DetailSelectionDelegate {
         let blurredView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
         blurredView.frame = self.view.bounds
         self.image.addSubview(blurredView)
-        
         //Check if image has been cashed to memory
         if let img = self.imageCashDict.object(forKey: picture.largeImage as NSString)  {
             self.image.image = img
