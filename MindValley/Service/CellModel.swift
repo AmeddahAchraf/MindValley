@@ -26,8 +26,8 @@ class CellModel {
             self.fetchPhoto()
         }
     }
-   
-
+    
+    
     // MARK: UI
     var isLoading: Bool = true {
         didSet {
@@ -37,7 +37,7 @@ class CellModel {
     var showLoading: (() -> Void)?
     var reloadData: (() -> Void)?
     var showError: ((Error) -> Void)?
-
+    
     
     func fetchData(URL : String) {
         self.isLoading = true
@@ -46,39 +46,40 @@ class CellModel {
                 
             case .success(let payload):
                 self.pictures = payload
-            
-
+                
+                
             case .failure(let error):
                 self.showError?(error)
                 print("failed")
-
+                
             }
         }
     }
-
+    
     private func fetchPhoto() {
         let group = DispatchGroup()
         self.pictures.forEach { (pic) in
             DispatchQueue.global(qos: .background).async(group: group) {
                 group.enter()
-                
-                let url = URL(string: pic.urls.small)
-                let data = try? Data(contentsOf: url!)
-                if let data = data {
-                    if let image = UIImage(data: data) {
-                        self.cellView.append(CellPicture(image: image, userName: pic.user.name, largeImage: pic.urls.regular, liked_by_user: pic.liked_by_user, likes: pic.likes))
+                DispatchQueue(label: "Runing Sync").sync {
+                    let url = URL(string: pic.urls.small)
+                    let data = try? Data(contentsOf: url!)
+                    if let data = data {
+                        if let image = UIImage(data: data) {
+                            self.cellView.append(CellPicture(image: image, userName: pic.user.name, largeImage: pic.urls.regular, liked_by_user: pic.liked_by_user, likes: pic.likes))
+                        }
+                        else{
+                            print("Failed converting data")
+                        }
                     }
-                    else{
-                        print("Failed converting data")
+                    else {
+                        print("Failed getting \(pic.urls.small)")
                     }
-                }
-                else {
-                    print("Failed getting \(pic.urls.small)")                    
                 }
                 group.leave()
             }
         }
-
+        
         group.notify(queue: .main) {
             self.isLoading = false
             self.reloadData?()
@@ -87,15 +88,15 @@ class CellModel {
     
     func fetchLargePicture(URL: String, onSuccess: @escaping(Data) -> Void, onFailure: @escaping(Error) -> Void){
         AF.request(URL).response{ response in
-           switch response.result {
+            switch response.result {
             case .success(let responseData):
                 onSuccess(responseData!)
-
+                
             case .failure(let error):
                 onFailure(error)
             }
         }
     }
-
-
+    
+    
 }
