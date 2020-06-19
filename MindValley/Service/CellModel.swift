@@ -63,17 +63,18 @@ class CellModel {
                 group.enter()
                 DispatchQueue(label: "Runing Sync").sync {
                     let url = URL(string: pic.urls.small)
-                    let data = try? Data(contentsOf: url!)
-                    if let data = data {
-                        if let image = UIImage(data: data) {
-                            self.cellView.append(CellPicture(image: image, userName: pic.user.name, largeImage: pic.urls.regular, liked_by_user: pic.liked_by_user, likes: pic.likes))
-                        }
-                        else{
-                            print("Failed converting data")
-                        }
+                    do {
+                        let data = try Data(contentsOf: url!)
+                            if let image = UIImage(data: data) {
+                                self.cellView.append(CellPicture(image: image, userName: pic.user.name, largeImage: pic.urls.regular, liked_by_user: pic.liked_by_user, likes: pic.likes))
+                            }
+                            else{
+                                print("Failed converting data")
+                            }
+                        
                     }
-                    else {
-                        print("Failed getting \(pic.urls.small)")
+                    catch {
+                        print("FAILED GETTING PICTURE :", pic.urls.small)
                     }
                 }
                 group.leave()
